@@ -1,1 +1,22 @@
+/* Dark mode styles */
+:root {
+  color-scheme: light;
+}
 
+[data-theme="dark"] {
+  color-scheme: dark;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Default to light mode */
+html {
+  background-color: #ffffff;
+  color: #000000;
+}

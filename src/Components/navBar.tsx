@@ -1,10 +1,19 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
+import { HStack, Image, Text, Button } from "@chakra-ui/react";
 
 function NavBar() {
+  const toggleColorMode = () => {
+    const currentMode = document.documentElement.getAttribute("data-theme");
+    const newMode = currentMode === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newMode);
+  };
+
   return (
-    <HStack padding="20px">
-      <Image src="/vite.svg" alt="Logo" boxSize="50px" border="2px solid red" />
-      <Text>NavBar</Text>
+    <HStack padding="20px" justifyContent="space-between">
+      <HStack>
+        <Image src="/vite.svg" alt="Logo" boxSize="50px" />
+        <Text>GameSpace</Text>
+      </HStack>
+      <Button onClick={toggleColorMode}>🌙/☀️</Button>
     </HStack>
   );
 }
