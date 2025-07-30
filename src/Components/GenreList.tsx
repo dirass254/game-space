@@ -6,7 +6,7 @@ function GenresList() {
   const { data } = useGenres();
 
   return (
-    <List.Root>
+    <List.Root listStyleType={"none"}>
       {data.map((g) => (
         <List.Item paddingY={"5px"} key={g.id}>
           <HStack>
