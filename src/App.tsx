@@ -24,7 +24,10 @@ function App() {
           display={{ base: "none", lg: "block" }}
           paddingX={5}
         >
-          <GenreList onSelectGenre={(g) => setSelectedGenre(g)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectGenre={(g) => setSelectedGenre(g)}
+          />
         </GridItem>
         <GridItem area="main">
           <GameGrid selectedGenre={selectedGenre} />

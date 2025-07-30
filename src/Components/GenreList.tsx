@@ -4,8 +4,9 @@ import CropedImageUrl from "../services/Image-url";
 
 interface Props {
   onSelectGenre: (genre: Genre | null) => void;
+  selectedGenre: Genre | null;
 }
-function GenresList({ onSelectGenre }: Props) {
+function GenresList({ selectedGenre, onSelectGenre }: Props) {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
 
@@ -25,6 +26,7 @@ function GenresList({ onSelectGenre }: Props) {
                 fontSize="lg"
                 variant="ghost"
                 onClick={() => onSelectGenre(g)}
+                fontWeight={g.id === selectedGenre?.id ? "bold" : "normal"}
               >
                 {g.name}
               </Button>
