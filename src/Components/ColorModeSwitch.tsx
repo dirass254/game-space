@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HStack, Box } from "@chakra-ui/react";
+import { HStack, Box, Text } from "@chakra-ui/react";
 
 function ColorModeSwitch() {
   const [isDark, setIsDark] = useState(false);
@@ -41,6 +41,7 @@ function ColorModeSwitch() {
           transition="left 0.2s"
         />
       </Box>
+      <Text textWrap={"nowrap"}>🌙/☀️</Text>
     </HStack>
   );
 }
