@@ -1,27 +1,49 @@
 import { Input, Box } from "@chakra-ui/react";
+import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 
-const SearchInput = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const SearchInput = ({ onSearch }: Props) => {
+  const ref = useRef<HTMLInputElement>(null);
+
+  const handleSearch = () => {
+    if (ref.current) {
+      onSearch(ref.current.value);
+    }
+  };
+
   return (
-    <Box position="relative" width="300px">
-      <Box
-        position="absolute"
-        left="12px"
-        top="50%"
-        transform="translateY(-50%)"
-        zIndex={2}
-        pointerEvents="none"
-      >
-        <BsSearch color="gray.300" />
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSearch();
+      }}
+    >
+      <Box position="relative" width="300px">
+        <Box
+          position="absolute"
+          top="50%"
+          left="10px"
+          transform="translateY(-50%)"
+          zIndex={1}
+          cursor="pointer"
+          _hover={{ color: "gray.500" }}
+        >
+          <BsSearch color="gray.300" onClick={handleSearch} />
+        </Box>
+        <Input
+          ref={ref}
+          size="lg"
+          borderRadius={20}
+          placeholder="Searching games..."
+          variant="outline"
+          paddingLeft="40px"
+        />
       </Box>
-      <Input
-        size="lg"
-        borderRadius={20}
-        placeholder="Searching games..."
-        variant="outline"
-        paddingLeft="40px"
-      />
-    </Box>
+    </form>
   );
 };
 
