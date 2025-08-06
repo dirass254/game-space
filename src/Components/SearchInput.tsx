@@ -12,6 +12,7 @@ const SearchInput = ({ onSearch }: Props) => {
   const handleSearch = () => {
     if (ref.current) {
       onSearch(ref.current.value);
+      ref.current.value = "";
     }
   };
 
