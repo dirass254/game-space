@@ -1,4 +1,4 @@
-import { Input, Box } from "@chakra-ui/react";
+import { Input, Box, Icon } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 
@@ -33,7 +33,7 @@ const SearchInput = ({ onSearch }: Props) => {
           cursor="pointer"
           _hover={{ color: "gray.500" }}
         >
-          <BsSearch color="gray.300" onClick={handleSearch} />
+          <Icon as={BsSearch as any} color="gray.300" onClick={handleSearch} />
         </Box>
         <Input
           ref={ref}

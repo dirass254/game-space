@@ -11,13 +11,12 @@ import { MdPhoneIphone } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { Icon, HStack } from "@chakra-ui/react";
 import { Platform } from "../Hooks/useGames";
-import { IconType } from "react-icons";
 
 interface Props {
   platforms: Platform[];
 }
 function PlatformIconLit({ platforms }: Props) {
-  const iconMap: { [key: string]: IconType } = {
+  const iconMap: { [key: string]: any } = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
@@ -33,7 +32,7 @@ function PlatformIconLit({ platforms }: Props) {
       {platforms.map((platform) => (
         <Icon
           key={platform.id}
-          as={iconMap[platform.slug]}
+          as={iconMap[platform.slug] as any}
           color={"gray.500"}
         />
       ))}
